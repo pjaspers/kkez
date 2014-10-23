@@ -3,11 +3,11 @@ package main
 import "net/http"
 import "log"
 import "fmt"
-import "html"
 import "path"
 import "html/template"
 import "time"
 import "sort"
+
 type LayoutData struct {
 	Title string
 	Data interface{}
@@ -68,13 +68,11 @@ func main() {
 	// Serve our static assets
 	// (Make sure to strip out the public, before `FileServer` sees it)
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
-	http.HandleFunc("/bar", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
-	})
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		layout := path.Join("templates", "layout.html")
 		parse := func(name string) (*template.Template, error) {
-			t := template.New("") //.Funcs(funcMap)
+			t := template.New("")
 			return t.ParseFiles(layout, path.Join("templates", name))
 		}
 		index, err:= parse("index.html")
@@ -83,7 +81,7 @@ func main() {
 			return
 		}
 		var layoutData = LayoutData{Title: "Dinges"}
-		event, isToday := nextCardMoment(events, dateFromString("2013, 2, 2"))
+		event, isToday := nextCardMoment(events, time.Now())
 		if isToday {
 			layoutData.Data = Index{"Is het kaarten vandaag?", "Ja", fmt.Sprintf("Bij %s", event.Name)}
 		} else {
@@ -95,5 +93,6 @@ func main() {
 			return
 		}
 	})
+	log.Printf("Whizzing and wurring at http://0.0.0.0:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
