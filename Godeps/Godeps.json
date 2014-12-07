@@ -1,0 +1,10 @@
+{
+	"ImportPath": "github.com/pjaspers/kkez",
+	"GoVersion": "go1.3.1",
+	"Deps": [
+		{
+			"ImportPath": "github.com/mattn/go-sqlite3",
+			"Rev": "1fbcb3cdc2433e50534afbd3f00447dba3eecfaf"
+		}
+	]
+}
