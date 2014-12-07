@@ -30,7 +30,7 @@ func setupDatabase() {
 	return
 }
 
-func allEvents() ([]Event) {
+func allEvents() []Event {
 	db, err := sql.Open("sqlite3", "./kkez.db")
 	if err != nil {
 		log.Fatal(err)
