@@ -81,7 +81,7 @@ func nextCardMoment(sortedEvents []Event, date time.Time) (event Event, isToday 
 }
 
 func main() {
-	// setupDatabase()
+	setupDatabase()
 	for _, event := range events {
 		createEvent(event.Name, event.Date)
 	}
