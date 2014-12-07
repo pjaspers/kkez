@@ -2,6 +2,7 @@ package main
 
 import "net/http"
 import "log"
+import "os"
 import "fmt"
 import "path"
 import "html/template"
@@ -115,6 +116,10 @@ func main() {
 			return
 		}
 	})
-	log.Printf("Whizzing and wurring at http://0.0.0.0:8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	port := os.Getenv("PORT")
+	if len(port) == 0 {
+		port = "3000"
+	}
+	log.Printf("Whizzing and wurring at http://0.0.0.0:" + port)
+	log.Fatal(http.ListenAndServe(":" + port, nil))
 }
