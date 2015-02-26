@@ -63,7 +63,23 @@ var events = []Event{
 	Event{Name: "Karin", Date: dateFromString("2014, 6, 27")},
 	Event{Name: "Simon", Date: dateFromString("2014, 7, 25")},
 	Event{Name: "Erwin", Date: dateFromString("2014, 8, 29")},
+	Event{Name: "Peejt", Date: dateFromString("2014, 10, 31")},
+	Event{Name: "Piet", Date: dateFromString("2014, 11, 28")},
+	Event{Name: "Maarten", Date: dateFromString("2014, 12, 26")},
+	Event{Name: "Pier", Date: dateFromString("2015, 1, 30")},
+	Event{Name: "Karin", Date: dateFromString("2015, 2, 27")},
+	Event{Name: "Frits", Date: dateFromString("2015, 3, 27")},
+	Event{Name: "Gijs", Date: dateFromString("2015, 4, 24")},
+	Event{Name: "Simon", Date: dateFromString("2015, 5, 29")},
+	Event{Name: "Kurt", Date: dateFromString("2015, 6, 19")},
+	Event{Name: "Dennis", Date: dateFromString("2015, 6, 31")},
+	Event{Name: "Katrien", Date: dateFromString("2015, 8, 28")},
+	Event{Name: "Stijn", Date: dateFromString("2015, 9, 25")},
+	Event{Name: "Ingmar", Date: dateFromString("2015, 10, 30")},
+	Event{Name: "Jan", Date: dateFromString("2015, 11, 27")},
+	Event{Name: "Erwin", Date: dateFromString("2015, 12, 18")},
 }
+
 
 type ByDate []Event
 
