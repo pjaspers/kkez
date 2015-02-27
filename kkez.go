@@ -89,7 +89,9 @@ func (a ByDate) Less(i, j int) bool { return a[i].Date.Before(a[j].Date) }
 
 func nextCardMoment(sortedEvents []Event, date time.Time) (event Event, isToday bool) {
 	for _, event := range sortedEvents {
+		log.Printf("Ze event %s vs %s:", event, date);
 		if event.Date.Equal(date) || event.Date.After(date) {
+			log.Printf("Found it %s:", event);
 			return event, (event.Date.YearDay() == time.Now().YearDay())
 		}
 	}
@@ -101,8 +103,8 @@ func main() {
 	for _, event := range events {
 		createEvent(event.Name, event.Date)
 	}
-	log.Printf("Event %s", nextEvent(dateFromString("2014, 12, 23")))
-	log.Printf("All events: %s", allEvents())
+	// log.Printf("Event %s", nextEvent(dateFromString("2014, 12, 23")))
+	// log.Printf("All events: %s", allEvents())
 	sort.Sort(ByDate(events))
 
 	// Serve our static assets
@@ -121,7 +123,7 @@ func main() {
 			return
 		}
 		var layoutData = LayoutData{Title: "Dinges"}
-		event, isToday := nextCardMoment(events, time.Now())
+		event, isToday := nextCardMoment(events, time.Now().Add(-24 * time.Hour))
 		if isToday {
 			layoutData.Data = Index{"Is het kaarten vandaag?", "Ja", fmt.Sprintf("Bij %s", event.Name)}
 		} else {
