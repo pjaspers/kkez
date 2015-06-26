@@ -72,7 +72,7 @@ var events = []Event{
 	Event{Name: "Gijs", Date: dateFromString("2015, 4, 24")},
 	Event{Name: "Simon", Date: dateFromString("2015, 5, 29")},
 	Event{Name: "Kurt", Date: dateFromString("2015, 6, 19")},
-	Event{Name: "Dennis", Date: dateFromString("2015, 6, 31")},
+	Event{Name: "Dennis", Date: dateFromString("2015, 7, 31")},
 	Event{Name: "Katrien", Date: dateFromString("2015, 8, 28")},
 	Event{Name: "Stijn", Date: dateFromString("2015, 9, 25")},
 	Event{Name: "Ingmar", Date: dateFromString("2015, 10, 30")},
